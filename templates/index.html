@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News Aggregator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI News Aggregator</h1>
+            <p class="subtitle">Latest articles from leading AI sources</p>
+        </header>
+
+        <div class="controls">
+            <div class="search-container">
+                <input type="text"
+                       id="searchInput"
+                       placeholder="Search articles by keyword..."
+                       autocomplete="off">
+                <span class="search-icon">🔍</span>
+            </div>
+            <button id="refreshBtn" class="refresh-btn" title="Refresh feeds">
+                <span class="refresh-icon">↻</span> Refresh
+            </button>
+        </div>
+
+        <div class="stats">
+            <span id="articleCount">Loading...</span>
+            <span id="lastUpdated"></span>
+        </div>
+
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Loading AI news articles...</p>
+        </div>
+
+        <div id="articlesContainer" class="articles-grid">
+            <!-- Articles will be loaded here via JavaScript -->
+        </div>
+
+        <div id="noResults" class="no-results" style="display: none;">
+            <p>No articles found matching your search.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sources: OpenAI, Hugging Face, Google AI, DeepMind, MIT News AI</p>
+        <p>Updates every 5 minutes</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
